@@ -1,6 +1,6 @@
 # Postfix forwarding
 
-Mail forwarding from custom domain to, for example, gmail.
+Simple SMTP server, usefull for email traps/notice/apps email relay.
 
 Image is based on *alpine:3.5* linux and the resulting size is around 60 MB.
 
@@ -16,11 +16,11 @@ After that a new image should be available in your local docker repository as **
 ## Running a docker image
 
 You need to provide few variables when creating a container:
-* **HOSTNAME** - server's hostname - preferably FQDN one, example: awesome-server.somedomain.com
-* **DOMAINS** - virtual alias domains that you want to forward mails for, example: example.com somedomain.com
-* **EMAILS** - rules for forwarding, example *(you can use some-email@example.com if you want to forward just one specific email instead of using a catch all rule)*: @example.com myemail@gmail.com\n@somedomain.com myemail@gmail.com\n
+* **MYHOSTNAME** - server's hostname - preferably FQDN one, example: awesome-server.somedomain.com
+* **RELAY_DOMAINS** - domains we will relay
+* **MYNETWORKS** - networks we will relay from
 
 Whole command could like this:
 ```
-docker run -d -p 25:25 -e HOSTNAME=awesome-server.somedomain.com -e "DOMAINS=example.com somedomain.com" -e "EMAILS=@example.com myemail@gmail.com\n@somedomain.com myemail@gmail.com\n" --name mail local/mail
+docker run -d -p 25:25 -e MYHOSTNAME=awesome-server.somedomain.com -e "RELAY_DOMAINS=example.com somedomain.com" -e "MYNETWORKS=192.168.1.0/24\n192.168.1.0/24\n" --name mail local/mail
 ```

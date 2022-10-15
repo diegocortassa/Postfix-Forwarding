@@ -1,11 +1,6 @@
 FROM alpine:3.5
 
-MAINTAINER Martin Pešek <pesek.dev@gmail.com>
-
-# Variables to use when creating a container from this image:
-# HOSTNAME - server's hostname - preferably FQDN one, example: awesome-server.somedomain.com
-# DOMAINS - virtual alias domains that you want to forward mails for, example: example.com somedomain.com
-# EMAILS - rules for forwarding, example: @example.com myemail@gmail.com\n@somedomain.com myemail@gmail.com\n
+MAINTAINER Diego Cortassa <diego@cortassa.net>
 
 RUN apk --no-cache add postfix ca-certificates supervisor rsyslog bash
 
