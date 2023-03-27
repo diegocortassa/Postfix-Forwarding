@@ -31,3 +31,6 @@ Whole command could like this:
 ```
 docker run -d -p 25:25 -e MYHOSTNAME=awesome-server.somedomain.com -e "RELAY_DOMAINS=example.com somedomain.com" -e "MYNETWORKS=192.168.1.0/24\n192.168.1.0/24\n" --name mail local/mail
 ```
+
+## Credits
+This docker image was forked from  [MartinPesek/Postfix-Forwarding](https://github.com/MartinPesek/Postfix-Forwarding) by Martin Pešek
