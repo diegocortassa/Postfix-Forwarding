@@ -1,6 +1,7 @@
 FROM alpine:3.5
 
 MAINTAINER Diego Cortassa <diego@cortassa.net>
+ENV REFRESHED_AT 2023-03-27
 
 RUN apk --no-cache add postfix ca-certificates supervisor rsyslog bash
 

@@ -8,7 +8,7 @@ Image is based on *alpine:3.5* linux and the resulting size is around 60 MB.
 
 To generate docker image execute from root directory:
 ```
-docker build -t local/Postfix-Forwarding .
+docker build -t local/postfix-forwarding .
 ```
 
 After that a new image should be available in your local docker repository as **local/mail**.
@@ -17,7 +17,7 @@ After that a new image should be available in your local docker repository as **
 To pull the image from docker hub:
 
 ```
-docker pull diegocortassa/Postfix-Forwarding
+docker pull diegocortassa/postfix-forwarding
 ```
 
 ## Running a docker image
@@ -29,7 +29,7 @@ You need to provide few variables when creating a container:
 
 Whole command could like this:
 ```
-docker run -d -p 25:25 -e MYHOSTNAME=awesome-server.somedomain.com -e "RELAY_DOMAINS=example.com somedomain.com" -e "MYNETWORKS=192.168.1.0/24\n192.168.1.0/24\n" --name mail local/mail
+docker run -d -p 25:25 -e MYHOSTNAME=awesome-server.somedomain.com -e "RELAY_DOMAINS=example.com,somedomain.com" -e "MYNETWORKS=192.168.1.0/24,192.168.1.0/24" --name relay diegocortassa/postfix-forwarding
 ```
 
 ## Credits
