@@ -8,10 +8,17 @@ Image is based on *alpine:3.5* linux and the resulting size is around 60 MB.
 
 To generate docker image execute from root directory:
 ```
-docker build -t local/mail .
+docker build -t local/Postfix-Forwarding .
 ```
 
 After that a new image should be available in your local docker repository as **local/mail**.
+
+## Pulling image from docker hub
+To pull the image from docker hub:
+
+```
+docker pull diegocortassa/Postfix-Forwarding
+```
 
 ## Running a docker image
 
